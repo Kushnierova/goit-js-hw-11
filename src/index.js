@@ -88,10 +88,10 @@ function renderPhotosCard(photosArray) {
 
     const renderCard = `<div class='photo-card'><a href=${largeImg}><img src=${smallImg} alt=${alt} class='img'></a>
     <div class='list'>
-    <p><b>Likes</b><br>${likes}</p>
-    <p><b>Views</b><br>${views}</p>
-    <p><b>Comments</b><br>${comments}</p>
-    <p><b>Downloads</b><br>${downloads}</p>
+    <p><b>🥰 Likes</b><br>${likes}</p>
+    <p><b>🙂 Views</b><br>${views}</p>
+    <p><b>😜 Comments</b><br>${comments}</p>
+    <p><b>🤩 Downloads</b><br>${downloads}</p>
     </div></div>`
 
     galleryEl.insertAdjacentHTML("beforeend", renderCard)
