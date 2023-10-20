@@ -1,6 +1,6 @@
-import { fetchPhotoByKeyword } from './fetch-photo-keyword';
+// import { fetchPhotoByKeyword } from './fetch-photo-keyword';
 
-// import axios from 'axios';
+import axios from 'axios';
 import Notiflix, { Loading } from 'notiflix';
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
@@ -8,9 +8,10 @@ import 'simplelightbox/dist/simple-lightbox.min.css';
 const searchForm = document.querySelector('.search-form');
 const galleryEl = document.querySelector('.gallery');
 const loadMoreBtn = document.querySelector('.load-more');
+const input = document.querySelector('.input');
 
-// const APIKEY = '39658126-cca0e2f1e761c4f8cef133a9f';
-// const url = 'https://pixabay.com/api/';
+const APIKEY = '39658126-cca0e2f1e761c4f8cef133a9f';
+const url = 'https://pixabay.com/api/';
 const maxPhotos = 40;
 let pageNum = 0;
 let keyword = '';
@@ -26,7 +27,7 @@ async function onSearch(event) {
   event.preventDefault();
   galleryEl.innerHTML = '';
   pageNum = 1;
-  keyword = event.currentTarget.keyword.value.trim();
+  keyword = input.value.trim();
   if (keyword === '') {
     return;
   }
@@ -65,22 +66,22 @@ async function onLoadMore(event) {
     console.error(error);
   }
 }
-// async function fetchPhotoByKeyword(keyword) {
-//   const { data } = await axios.get('', {
-//     baseURL: url,
-//     params: {
-//       key: APIKEY,
-//       q: keyword,
-//       image_type: 'photo',
-//       orientation: 'horizontal',
-//       safesearch: true,
-//       per_page: maxPhotos,
-//       page: pageNum,
-//     },
-//   });
+async function fetchPhotoByKeyword(keyword) {
+  const { data } = await axios.get('', {
+    baseURL: url,
+    params: {
+      key: APIKEY,
+      q: keyword,
+      image_type: 'photo',
+      orientation: 'horizontal',
+      safesearch: true,
+      per_page: maxPhotos,
+      page: pageNum,
+    },
+  });
 
-//   return data;
-// }
+  return data;
+}
 
 function renderPhotosCard(photosArray) {
   for (const photo of photosArray) {
