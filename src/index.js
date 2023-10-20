@@ -26,8 +26,8 @@ async function onSearch(event) {
   event.preventDefault();
   galleryEl.innerHTML = '';
   pageNum = 1;
-  keyword = event.currentTarget.keyword.value;
-  if (keyword.trim() === '') {
+  keyword = event.currentTarget.keyword.value.trim();
+  if (keyword === '') {
     return;
   }
   try {
