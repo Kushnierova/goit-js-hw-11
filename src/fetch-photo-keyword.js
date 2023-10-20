@@ -1,5 +1,5 @@
 import axios from 'axios';
-export {fetchPhotoByKeyword}
+
 
 const APIKEY = '39658126-cca0e2f1e761c4f8cef133a9f';
 const url = 'https://pixabay.com/api/';
@@ -23,4 +23,4 @@ async function fetchPhotoByKeyword(keyword) {
   return data;
 }
 
-
+export {fetchPhotoByKeyword}
